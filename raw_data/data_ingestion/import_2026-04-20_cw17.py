@@ -8,7 +8,7 @@ date_val = "2026-04-20" # change for edit
 
 # attributes per month
 # commit empty dictionary after monthly contribution
-strength_april26 = {
+strength_q1_2026 = {
     "StupidHoe":81957,
     "Wutbob":106604,
     "RussischerGolum":76694,
@@ -20,9 +20,9 @@ strength_april26 = {
     "CaRRieR":41906,
     "Georgie":38831
 }
-#strength_april26 = {}
+#strength_q1_2026 = {}
 
-dexterity_april26 = {
+dexterity_q1_2026 = {
     "Paladin":113935,
     "Tao":162241,
     "Bluex3":115519,
@@ -33,12 +33,11 @@ dexterity_april26 = {
     "HER-WIEDZMIN":40932,
     "Melanie":53397,
     "Tecanite":51932,
-    "Szamil":36689,
-    "Tibi":30122
+    "Szamil":36689
 }
-#dexterity_april26 = {}
+#dexterity_q1_2026 = {}
 
-intelligence_april26 = {
+intelligence_q1_2026 = {
     "Falke":133413,
     "Liiight":115896,
     "Sharandra":85941,
@@ -66,13 +65,14 @@ intelligence_april26 = {
     "Lucario95":51287,
     "Psychotherapeut":40323,
     "Chr1s":33232,
+    "Thorgrim":32567,
     "BeTaMarci0":38840
 }
-#intelligence_april26 = {}
+#intelligence_q1_2026 = {}
 
 # Levels per week
 # change each week
-level_cw17_26 = {
+level_cw17_2026 = {
     "Paladin":495,
     "Tao":530,
     "StupidHoe":456,
@@ -99,7 +99,7 @@ level_cw17_26 = {
     "CortaX":437,
     "Flosse97":436,
     "Nitzodon Oworotz":430,
-    "HER-WIEDZMIN":428,
+    "HER-WIEDZMIN":427,
     "Borán":426,
     "Major Tom":426,
     "xCanJackson":424,
@@ -119,21 +119,21 @@ level_cw17_26 = {
     "Tecanite":405,
     "Chr1s":403,
     "Szamil":400,
+    "Thorgrim":385,
     "BeTaMarci0":384,
     "CaRRieR":383,
     "Georgie":380,
-    "Tibi":375
 }
 
 rows = []
 
-for name, val in strength_april26.items():
+for name, val in strength_q1_2026.items():
     rows.append({"timestamp": date_val, "player_name": name, "value": val, "stat_type": "Strength"})
-for name, val in dexterity_april26.items():
+for name, val in dexterity_q1_2026.items():
     rows.append({"timestamp": date_val, "player_name": name, "value": val, "stat_type": "Dexterity"})
-for name, val in intelligence_april26.items():
+for name, val in intelligence_q1_2026.items():
     rows.append({"timestamp": date_val, "player_name": name, "value": val, "stat_type": "Intelligence"})
-for name, val in level_cw17_26.items():
+for name, val in level_cw17_2026.items():
     rows.append({"timestamp": date_val, "player_name": name, "value": val, "stat_type": "Level"})
 
 
@@ -143,16 +143,6 @@ df = pd.DataFrame(rows)
 conn = sqlite3.connect("../sf_data.db")
 cursor = conn.cursor()
 df.to_sql("guild_tracking", conn, if_exists = "append", index = False)
-
-# prevent having duplicates
-cursor.execute("""
-    DELETE FROM guild_tracking 
-    WHERE rowid NOT IN (
-        SELECT MIN(rowid) 
-        FROM guild_tracking 
-        GROUP BY timestamp, player_name, stat_type, value
-    )
-""")
 
 conn.commit()
 conn.close()
