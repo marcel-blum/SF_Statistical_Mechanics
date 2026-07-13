@@ -2,9 +2,9 @@
 import pandas as pd
 import sqlite3
 
-# data from calendar week 28 of 2026
+# data from calendar week 29 of 2026
 
-date_val = "2026-07-06" # change for edit
+date_val = "2026-07-13" # change for edit
 
 # attributes per month
 # commit empty dictionary after monthly contribution
@@ -16,64 +16,64 @@ intelligence_q1_2026 = {}
 
 # Levels per week
 # change each week
-level_cw28_2026 = {
+level_cw29_2026 = {
     "Paladin":503,
-    "Tao":538,
-    "StupidHoe":510,
+    "Tao":539,
+    "StupidHoe":511,
     "Falke":523,
-    "Wutbob":521,
-    "Bluex3":508,
+    "Wutbob":522,
+    "Bluex3":509,
     "Liiight":493, #inactive
-    "Dalle":497,
+    "Dalle":501,
     "Sharandra":497,
     "Sigurlasius":478,
-    "Kampfbock":473,
-    "Russischer Golum":471,
-    "Raguos":462,
+    "Kampfbock":474,
+    "Russischer Golum":472,
+    "Raguos":464,
     "Pauliv4":463,
     #"Bagarrao":450, #cw19 #changed_to_Empire
     "Bl4ckless":461,
-    "Wolff0303":458,
-    "Fasta":467,
+    "Wolff0303":459,
+    "Fasta":468,
     "Swagboi":453,
     "FrankoSan":456,
     #"manekk":447, #cw22 #changed_to_Empire
-    "Bumblebee Hummel":457,
-    "Hawi":454,
-    "Restless":453,
-    "Schmollutz":446,
-    "ShangriLa":444,
+    "Bumblebee Hummel":458,
+    "Hawi":456,
+    "Restless":455,
+    "Schmollutz":447,
+    "ShangriLa":445,
     "CortaX":444,
     "Flosse97":445,
     "Nitzodon Oworotz":440,
-    "HER-WIEDZMIN":434,
+    "HER-WIEDZMIN":436,
     "Borán":440,
     #"Major Tom":426, #cw19 #inactive
     "xCanJackson":441,
     "Liltwo":436,
     "Twerkelele":437,
-    "Otis":434,
+    "Otis":435,
     "Sunudon Juckamas":432,
-    "Dimonz":429,
+    "Dimonz":430,
     #"AndréDE":416, #cw19 #inactive
-    "Feye":425,
+    "Feye":427,
     #"Krazy Kris":421, #cw24 #changed_to_Frozen_Flames
     "Lucario95":423,
-    "tris":422,
+    "tris":424,
     #"Annatar":415, #cw21 #inactive
-    "Melanie":420,
+    "Melanie":421,
     "Jan284":425,
     "Psychotherapeut":413,
-    "Tecanite":415,
+    "Tecanite":416,
     "Chr1s":407,
-    "Szamil":410,
+    "Szamil":411,
     "Thorgrim":404,
-    "BeTaMarci0":403,
-    "Dr Gallo":397,
-    "Fendo1982":401,
+    "BeTaMarci0":404,
+    "Dr Gallo":399,
+    "Fendo1982":402,
     "CaRRieR":389,
     "Georgie":390,
-    "Firsen":381
+    "Firsen":383
 }
 
 rows = []
@@ -84,7 +84,7 @@ for name, val in dexterity_q1_2026.items():
     rows.append({"timestamp": date_val, "player_name": name, "value": val, "stat_type": "Dexterity"})
 for name, val in intelligence_q1_2026.items():
     rows.append({"timestamp": date_val, "player_name": name, "value": val, "stat_type": "Intelligence"})
-for name, val in level_cw28_2026.items():
+for name, val in level_cw29_2026.items():
     rows.append({"timestamp": date_val, "player_name": name, "value": val, "stat_type": "Level"})
 
 
